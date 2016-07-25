@@ -1,0 +1,4 @@
+name = Product option form panel
+description = Provides product option set panel.
+core = 7.x
+dependencies[] = ctools
