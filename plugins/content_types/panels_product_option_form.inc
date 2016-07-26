@@ -49,8 +49,8 @@ function panels_product_option_pane_edit_form_submit(&$form, &$form_state) {
  * See ctools_plugin_examples for more advanced info
  */
 function panels_product_option_pane_render($subtype, $conf, $args, $contexts) {
-
-	$option_set_id = $contexts['context_entity:commerce_option_1']->data->option_id;
+dpm($contexts);
+	$option_set_id = $contexts['argument_entity_id:commerce_option_1']->data->option_id;
 	//$option_set_id = 1;
 	module_load_include('inc', 'commerce_option', 'commerce_option.admin');
   // Update the strings to allow contexts.
