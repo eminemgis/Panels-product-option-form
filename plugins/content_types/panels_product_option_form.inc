@@ -12,6 +12,7 @@ $plugin = array(
   'defaults' => array( // Array of defaults for the settings form.
     'text' => '',
   ),
+	'required context' => new ctools_context_required(t('Commerce option'), 'commerce_option'),
   'all contexts' => TRUE, // This is NEEDED to be able to use substitution strings in your pane.
 );
 
@@ -49,8 +50,8 @@ function panels_product_option_pane_edit_form_submit(&$form, &$form_state) {
  * See ctools_plugin_examples for more advanced info
  */
 function panels_product_option_pane_render($subtype, $conf, $args, $contexts) {
-dpm($contexts);
-	$option_set_id = $contexts['argument_entity_id:commerce_option_1']->data->option_id;
+
+	$option_set_id = $contexts[$conf['context']]->data->option_id;
 	//$option_set_id = 1;
 	module_load_include('inc', 'commerce_option', 'commerce_option.admin');
   // Update the strings to allow contexts.
