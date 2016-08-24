@@ -9,3 +9,12 @@ function panels_product_option_ctools_plugin_directory($owner, $plugin_type) {
   }
 }
 
+/**
+ * Implements hook_menu_alter().
+ * To show proper option set name on edit form
+ */
+function panels_product_option_form_alter(&$form, &$form_state, $form_id){
+	if($form_id == 'commerce_option_edit_option_2_form'){
+		$form['type']['#value'] = $form_state['commerce_option']->set_id;
+	}
+}
